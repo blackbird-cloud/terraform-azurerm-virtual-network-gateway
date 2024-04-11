@@ -1,5 +1,5 @@
-# <Cloud> <Main resource> Terraform module
-A Terraform module which configures your <Cloud> <Main resource>. <Relevant docs>
+# Azure Virtual Network Gateway Terraform module
+A Terraform module which configures your Azure Virtual Network Gateway.  
 [![blackbird-logo](https://raw.githubusercontent.com/blackbird-cloud/terraform-module-template/main/.config/logo_simple.png)](https://www.blackbird.cloud)
 
 ## Example
@@ -13,6 +13,7 @@ A Terraform module which configures your <Cloud> <Main resource>. <Relevant docs
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3 |
+| <a name="requirement_external"></a> [external](#requirement\_external) | 2.3.3 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | 4.0.5 |
 
 ## Providers
@@ -20,6 +21,7 @@ A Terraform module which configures your <Cloud> <Main resource>. <Relevant docs
 | Name | Version |
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3 |
+| <a name="provider_external"></a> [external](#provider\_external) | 2.3.3 |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.5 |
 
 ## Resources
@@ -33,6 +35,7 @@ A Terraform module which configures your <Cloud> <Main resource>. <Relevant docs
 | [tls_private_key.client](https://registry.terraform.io/providers/hashicorp/tls/4.0.5/docs/resources/private_key) | resource |
 | [tls_private_key.server](https://registry.terraform.io/providers/hashicorp/tls/4.0.5/docs/resources/private_key) | resource |
 | [tls_self_signed_cert.server](https://registry.terraform.io/providers/hashicorp/tls/4.0.5/docs/resources/self_signed_cert) | resource |
+| [external_external.user_thumbprints](https://registry.terraform.io/providers/hashicorp/external/2.3.3/docs/data-sources/external) | data source |
 
 ## Inputs
 
@@ -56,6 +59,7 @@ A Terraform module which configures your <Cloud> <Main resource>. <Relevant docs
 | <a name="output_vpn_client_cert"></a> [vpn\_client\_cert](#output\_vpn\_client\_cert) | The VPN Client Certificate for the VPN Gateway |
 | <a name="output_vpn_client_configuration"></a> [vpn\_client\_configuration](#output\_vpn\_client\_configuration) | The VPN Client Configuration for the VPN Gateway |
 | <a name="output_vpn_client_private_key"></a> [vpn\_client\_private\_key](#output\_vpn\_client\_private\_key) | The VPN Client Private Key for the VPN Gateway |
+| <a name="output_vpn_client_thumbprints"></a> [vpn\_client\_thumbprints](#output\_vpn\_client\_thumbprints) | The thumbprint of the VPN Client Certificate for the VPN Gateway |
 | <a name="output_vpn_gateway_id"></a> [vpn\_gateway\_id](#output\_vpn\_gateway\_id) | The ID of the VPN Gateway |
 | <a name="output_vpn_gateway_name"></a> [vpn\_gateway\_name](#output\_vpn\_gateway\_name) | The name of the VPN Gateway |
 | <a name="output_vpn_gateway_sku"></a> [vpn\_gateway\_sku](#output\_vpn\_gateway\_sku) | The SKU of the VPN Gateway |

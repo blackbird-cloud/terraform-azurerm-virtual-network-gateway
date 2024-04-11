@@ -43,9 +43,10 @@ resource "azurerm_virtual_network_gateway" "vgw" {
 
     dynamic "revoked_certificate" {
       for_each = toset(var.vpn_point_to_site.revoked_clients)
+
       content {
         name       = revoked_certificate.key
-        thumbprint = sha1(tls_locally_signed_cert.client[revoked_certificate.key].cert_pem)
+        thumbprint = local.vpn_client_thumbprints[revoked_certificate.key]
       }
     }
   }
@@ -55,6 +56,18 @@ resource "azurerm_virtual_network_gateway" "vgw" {
     tls_locally_signed_cert.client,
     azurerm_public_ip.vgw
   ]
+}
+
+locals {
+  vpn_client_thumbprints = {
+    for k, v in data.external.user_thumbprints : k => v.result.thumbprint
+  }
+}
+
+data "external" "user_thumbprints" {
+  for_each = tls_locally_signed_cert.client
+
+  program = ["${path.module}/thumbprint.sh", each.value.cert_pem]
 }
 
 resource "tls_private_key" "server" {
@@ -98,8 +111,7 @@ resource "tls_cert_request" "client" {
 
   subject {
     common_name  = each.key
-    organization = "Zurich"
-
+    organization = var.vpn_point_to_site.certificate.organization
   }
 
   depends_on = [tls_private_key.server]

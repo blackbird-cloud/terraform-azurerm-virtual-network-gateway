@@ -44,3 +44,8 @@ output "vpn_server_cert" {
   value       = tls_self_signed_cert.server.cert_pem
   sensitive   = true
 }
+
+output "vpn_client_thumbprints" {
+  description = "The thumbprint of the VPN Client Certificate for the VPN Gateway"
+  value       = local.vpn_client_thumbprints
+}

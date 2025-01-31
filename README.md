@@ -45,13 +45,13 @@ Terraform module to create an Azure Virtual Network Gateway
 |------|-------------|------|---------|:--------:|
 | <a name="input_location"></a> [location](#input\_location) | The location/region where the virtual network gateway will be created. | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the virtual network gateway. | `string` | n/a | yes |
-| <a name="input_public_ip"></a> [public\_ip](#input\_public\_ip) | The public IP address configuration for the virtual network gateway. | <pre>object({<br>    name              = optional(string, null)<br>    allocation_method = optional(string, "Dynamic")<br>    sku               = optional(string, "Basic")<br>    tags              = optional(map(string), {})<br>  })</pre> | n/a | yes |
+| <a name="input_public_ip"></a> [public\_ip](#input\_public\_ip) | The public IP address configuration for the virtual network gateway. | <pre>object({<br/>    name              = optional(string, null)<br/>    allocation_method = optional(string, "Dynamic")<br/>    sku               = optional(string, "Basic")<br/>    tags              = optional(map(string), {})<br/>  })</pre> | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group in which to create the virtual network gateway. | `string` | n/a | yes |
 | <a name="input_sku"></a> [sku](#input\_sku) | The SKU of the virtual network gateway. | `string` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | The ID of the subnet in which to create the virtual network gateway. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource. | `map(string)` | n/a | yes |
 | <a name="input_type"></a> [type](#input\_type) | The type of the virtual network gateway. | `string` | n/a | yes |
-| <a name="input_vpn_point_to_site"></a> [vpn\_point\_to\_site](#input\_vpn\_point\_to\_site) | The VPN Point-to-Site configuration for the virtual network gateway. | <pre>object({<br>    address_space         = list(string)<br>    aad_tenant            = optional(string, null)<br>    aad_audience          = optional(string, null)<br>    aad_issuer            = optional(string, null)<br>    radius_server_address = optional(string, null)<br>    radius_server_secret  = optional(string, null)<br>    vpn_client_protocols  = optional(list(string), null)<br>    vpn_auth_types        = optional(list(string), null)<br>    certificate = optional(object({<br>      name                  = string<br>      organization          = string<br>      validity_period_hours = number<br>    }), null)<br>    clients         = optional(list(string), null)<br>    revoked_clients = optional(list(string), null)<br>  })</pre> | n/a | yes |
+| <a name="input_vpn_point_to_site"></a> [vpn\_point\_to\_site](#input\_vpn\_point\_to\_site) | The VPN Point-to-Site configuration for the virtual network gateway. | <pre>object({<br/>    address_space         = list(string)<br/>    aad_tenant            = optional(string, null)<br/>    aad_audience          = optional(string, null)<br/>    aad_issuer            = optional(string, null)<br/>    radius_server_address = optional(string, null)<br/>    radius_server_secret  = optional(string, null)<br/>    vpn_client_protocols  = optional(list(string), null)<br/>    vpn_auth_types        = optional(list(string), null)<br/>    certificate = optional(object({<br/>      name                  = string<br/>      organization          = string<br/>      validity_period_hours = number<br/>    }), null)<br/>    clients         = optional(list(string), null)<br/>    revoked_clients = optional(list(string), null)<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 
@@ -75,5 +75,5 @@ Checkout our other :point\_right: [terraform modules](https://registry.terraform
 
 ## Copyright
 
-Copyright © 2017-2024 [Blackbird Cloud](https://blackbird.cloud)
+Copyright © 2017-2025 [Blackbird Cloud](https://blackbird.cloud)
 <!-- END_TF_DOCS -->
